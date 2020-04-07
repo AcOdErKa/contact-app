@@ -60,7 +60,6 @@ export class ContactsComponent implements OnInit {
     );
   }
 
-
   fillContact(id, fn, ln, cn) {
     this._id = id;
     this.first_name2 = fn;
