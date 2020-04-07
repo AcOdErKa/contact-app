@@ -1,0 +1,53 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Contact List App</a>
+</nav>
+<br>
+<div class="container">
+  <div class="row">
+    <form class="form-inline" (submit) = "addContact()">
+      <div class="form-group col-md-3">
+        <input type="text" [(ngModel)] = "first_name" name= "first_name" class="form-control" placeholder="First Name">
+      </div>
+      <div class="form-group col-md-3">
+        <input type="text" [(ngModel)] = "last_name" name= "last_name" class="form-control" placeholder="Last Name">
+      </div>
+      <div class="form-group col-md-3">
+        <input type="text" [(ngModel)] = "contact_number" name= "contact_number" class="form-control" placeholder="Contact Number">
+      </div>
+      <div class="col-md-3">
+        <input type="submit" class="btn btn-success" value="Add New Contact ">
+      </div>
+    </form>
+  </div>
+  <br><br>
+  <div class="row"  [style.visibility]="isUdateVisible ? 'visible' : 'hidden'">
+    <form class="form-inline" (submit) = "updateContact()">
+      <div class="form-group col-md-3">
+        <input type="text" [(ngModel)] = "first_name2" name= "first_name2" class="form-control" placeholder="First Name">
+      </div>
+      <div class="form-group col-md-3">
+        <input type="text" [(ngModel)] = "last_name2" name= "last_name2" class="form-control" placeholder="Last Name">
+      </div>
+      <div class="form-group col-md-3">
+        <input type="text" [(ngModel)] = "contact_number2" name= "contact_number2" class="form-control" placeholder="Contact Number">
+      </div>
+      <div class="col-md-3">
+        <input type="submit" class="btn btn-success" value="Update Contact">
+      </div>
+    </form>
+  </div>
+</div>
+<hr>
+<br>
+<div class="container">
+  <h3>All Contacts</h3>
+  <br>
+  <div *ngFor = 'let contact of contacts' class="row">
+    <div class="col-md-3">{{contact.first_name}}</div>
+    <div class="col-md-3">{{contact.last_name}}</div>
+    <div class="col-md-2">{{contact.contact_number}}</div>
+    <div class="col-md-2"><input type="button" (click) = "deleteContact(contact._id)" value="Delete" class="btn btn-danger"></div>
+    <div class="col-md-2"><input type="button" (click) = "fillContact(contact._id,contact.first_name,contact.last_name,contact.contact_number)" value="Edit" class="btn btn-warning"></div>
+    <br><br>
+  </div>
+</div>
