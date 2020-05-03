@@ -8,7 +8,7 @@ app = express();
 const route = require('./routes/route');
 const PORT = 3000;
 
-mongoose.connect('mongodb://localhost:27017/contactlist', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://database:27017/contactlist', {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.connection.on('connected', () => {
     console.log("Connected to MongoDB Database @27017")
 });
